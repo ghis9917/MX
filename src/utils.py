@@ -1,15 +1,20 @@
 from collections.abc import Sequence
-from src.models import ClaimSubmission, GenericFile
+from typing import Dict, List
+from src.models import ClaimSubmission, ClaimProcessingResult, GenericFile
+
+import json
+import uuid
+import os
 
 class PromptsSequence(Sequence):
     def __init__(self, strings):
-        self._strings = list(strings)  # Store as a list internally
+        self._strings = list(strings)
 
     def __getitem__(self, index):
-        return self._strings[index]  # Supports indexing and slicing
+        return self._strings[index]
 
     def __len__(self):
-        return len(self._strings)  # Required for len()
+        return len(self._strings)
 
     def __repr__(self):
         return f"PromptsSequence({self._strings!r})"
@@ -46,13 +51,52 @@ async def prepare_claim_submission(description, supporting_docs) -> ClaimSubmiss
         ]
     )
 
-async def save_claim():
-    pass
+async def save_claim(submission: ClaimSubmission, result: ClaimProcessingResult) -> Dict | None:
 
-async def retrieve_claims(id = None):
-    if id:
-        # Logi to load all claims in the system
-        pass
+    STORAGE_PATH = "./data/claims"
+
+    uuid_str = str(uuid.uuid4())
+    claim_path = os.path.join(STORAGE_PATH, f"claim_{uuid_str}")
+    os.makedirs(claim_path)
+
+    description = os.path.join(claim_path, submission.description.filename)
+    with open(description, "wb") as f:
+        f.write(submission.description.content)
+
+    for doc in submission.supporting_docs:
+        doc_path = os.path.join(claim_path, doc.filename)
+        with open(doc_path, "wb") as f:
+            f.write(doc.content)
+
+    result_path = os.path.join(claim_path, "answer.json")
+    with open(result_path, "w") as f:
+        json.dump(result, f, indent=4)
+
+    return uuid_str
+
+
+
+async def retrieve_claims(id = None) -> List[Dict] | Dict:
+    if id is None:
+        claims = []
+        for claim_folder in os.listdir('./data/claims'):
+            claim_path = os.path.join('./data/claims', claim_folder)
+            if os.path.isdir(claim_path):
+                file_path = os.path.join(claim_path, 'answer.json')
+                with open(file_path, 'r') as f:
+                    result = json.load(f)
+                claims.append({
+                    'id': claim_folder.split('_')[1],
+                    'result': result
+                })
+        return claims
     else:
-        # Logic to load a specific claim
-        pass
+        claim_path = os.path.join('./data/claims', f"claim_{id}")
+        if os.path.isdir(claim_path):
+            file_path = os.path.join(claim_path, 'answer.json')
+            with open(file_path, 'r') as f:
+                result = json.load(f)
+            return {
+                'id': id, 
+                'result': result
+            }
