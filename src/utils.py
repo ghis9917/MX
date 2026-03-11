@@ -6,21 +6,7 @@ import json
 import uuid
 import os
 
-class PromptsSequence(Sequence):
-    def __init__(self, strings):
-        self._strings = list(strings)
-
-    def __getitem__(self, index):
-        return self._strings[index]
-
-    def __len__(self):
-        return len(self._strings)
-
-    def __repr__(self):
-        return f"PromptsSequence({self._strings!r})"
-
 async def parse_claim_submission(files) -> ClaimSubmission:
-
     description = None
     supporting_docs = []
 

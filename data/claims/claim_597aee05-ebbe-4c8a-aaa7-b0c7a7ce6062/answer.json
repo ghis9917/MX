@@ -1,0 +1,5 @@
+{
+    "decision": "UNCERTAIN",
+    "explanation": "The medical certificate supports a medical cancellation and the ticket proves booking/payment, but the medical document does not clearly identify the claimant and its authenticity cannot be verified from the provided evidence.",
+    "confidence": 0.75
+}

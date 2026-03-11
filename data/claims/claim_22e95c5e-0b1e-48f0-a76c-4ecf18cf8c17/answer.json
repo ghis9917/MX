@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the provided boarding pass and travel details do not document a covered reason under the policy and critical supporting evidence for the alleged loss is missing.",
+    "confidence": 0.9
+}

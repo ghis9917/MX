@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the medical certificate does not support illness preventing attendance and instead appears to certify fitness for sports, creating a material inconsistency with the claim.",
+    "confidence": 0.93
+}

@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the supporting documents are inconsistent with the described medical cancellation and do not provide the required medical report clearly linking the illness to the cancelled trip.",
+    "confidence": 0.96
+}

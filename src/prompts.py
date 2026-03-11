@@ -37,6 +37,7 @@ Use the retrieved policy as a reference to determine whether the content of the 
 FRAUD_CHECKER_AGENT_PROMPT = """
 You are an insurance claim processing agent. 
 Your task is to analyse the file provided and determine if there are any signs of fraud such as: photoshopped or redacted sections, doctored parts, missing names, dates or signatures or any other form of manipulation that could indicate fraudulent activity or simply that would render the file useless and the claim not valid.
+If there is any clear sign of manipulation, the claim should automatically be denied.
 """
 
 DESCRIPTION_ANALYSER_TOOL_PROMPT = """
@@ -48,11 +49,12 @@ SUPPORTING_DOCS_ANALYSER_TOOL_PROMPT = """
 To analyse all the supporting documents call the analyse_supporting_docs tool and determine if, together with the description.txt they are enough to support the claim or deny it. 
 If documents are missing, that's deny, if everything is there but the assessment is not clear, then it is uncertain. 
 In all other cases if the documents support the description and do not go against the policy, it's approve.
+Use the list of assessment, together with all the prior information to determine if the claim should be approved or denied (or uncertain if the case is very unclear or the information available is not enough to make a decision).
 """
 
 FRAUD_CHECKER_TOOL_PROMPT = """
 To determine if all files in the claim are valid and do not show any sign of fraudulent intent, call the check_document_validity tool.
-Should any of the files show signs of fraud, the claim should be at least uncertain or most likely denied.
+Should any of the files show signs of fraud, the claim should be classified as denied.
 """
 
 DESCRIPTION_ANALYSER_TOOL_INNER_PROMPT = """
@@ -60,9 +62,21 @@ Given the policy retrieved, analyze the following claim description and determin
 """
 
 SUPPORTING_DOCS_ANALYSER_TOOL_INNER_PROMPT = """
-Given the policy retrieved, the description of the claim and the validity assessment previously done for the same file, determine whether the following suporting document is enough to either Approve or Deny the claim.
+Given the policy retrieved, the description of the claim and the validity assessment previously done for the same file, determine whether the following suporting document and its text content are enough to either Approve or Deny the claim.
 """
 
 FRAUD_CHECK_ANALYSER_TOOL_INNER_PROMPT = """
 Analyze the following file and determine whether there are any sign of fraud or manipulation.
 """
+
+# ================= OCR AGENT ==================
+
+OCR_AGENT_PROMPT = """
+You are an OCR agent. Your task is to extract text from image-like files of documents that you receive in input.
+In some cases the documents might be in languages different from english, in those cases, make sure you provide the equivalent text in english.
+"""
+
+OCR_TOOL_INNER_PROMPT = """
+Extract the text from the following file and, if the text is not english, translate it to english.
+"""
+

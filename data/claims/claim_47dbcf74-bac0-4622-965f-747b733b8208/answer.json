@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because proof of booking is provided but critical required documentation of the amount paid is missing under the policy\u2019s trip cancellation requirements.",
+    "confidence": 0.82
+}

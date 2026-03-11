@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the required medical documentation is unreadable/inadequate and therefore the medical emergency causing the flight no-show is not sufficiently supported under the policy.",
+    "confidence": 0.91
+}

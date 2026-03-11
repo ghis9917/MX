@@ -1,5 +1,5 @@
 from typing import List
-from src.service import claim_analyser_run
+from src.agents.claim_analyser import claim_analyser_run
 from src.utils import parse_claim_submission, retrieve_claims, save_claim
 from fastapi import APIRouter, UploadFile, File
 

@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 
 if __name__ == "__main__":
 
-    if not os.path.exists("check.json"):
+    if not os.path.exists("./data/check.json"):
 
         check = {}
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
                     if os.path.isfile(file_path):
                         media_type, _ = mimetypes.guess_type(file_path)
                         files.append(('files', (file, open(file_path, 'rb'), media_type)))
-                response = requests.post('http://127.0.0.1:8000/claims', files=files)
+                response = requests.post('http://127.0.0.1:8000/claims/', files=files)
                 check[claim_folder]['actual'] = response.json()
 
         with open("./data/check.json", "w") as file:
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     y_pred = []
     for claim_id, result in check.items():
         expected = result['expected']['decision']
-        actual = result['actual']['decision']
+        actual = result['actual']['result']['decision']
         if 'acceptable_decision' in result['expected'] and expected != actual:
             expected = result['expected']['acceptable_decision']
         y_true.append(expected)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     total = 0
     for claim_id, result in check.items():
         expected = result['expected']['decision']
-        actual = result['actual']['decision']
+        actual = result['actual']['result']['decision']
         if expected == actual:
             matches += 1
 

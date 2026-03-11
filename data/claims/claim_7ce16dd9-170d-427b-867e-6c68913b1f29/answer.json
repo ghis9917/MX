@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim should be denied because, although the booking document appears valid, the required supporting medical report for the alleged accident-related trip cancellation is missing from the provided evidence.",
+    "confidence": 0.92
+}

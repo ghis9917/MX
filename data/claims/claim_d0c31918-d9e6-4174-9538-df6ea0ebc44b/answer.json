@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the medical certificate shows signs of manipulation and the supporting documents do not clearly establish a valid covered cancellation matching the travel dates.",
+    "confidence": 0.92
+}

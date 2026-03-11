@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the provided medical certificate states the claimant was in perfect health and the documents do not evidence a covered emergency or other covered reason for the missed train.",
+    "confidence": 0.95
+}

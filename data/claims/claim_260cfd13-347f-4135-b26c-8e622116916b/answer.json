@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim is denied because the medical documentation is incomplete for the alleged hospitalization and the policy excludes claims with incomplete required supporting evidence.",
+    "confidence": 0.89
+}
