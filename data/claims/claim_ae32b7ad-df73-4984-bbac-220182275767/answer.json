@@ -1,5 +1,0 @@
-{
-    "decision": "DENY",
-    "explanation": "The claim should be denied because the medical document is incomplete and contradictory, as it lacks key authentication details and states the claimant is fit for physical activity rather than medically unable to attend.",
-    "confidence": 0.96
-}

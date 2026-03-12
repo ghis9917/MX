@@ -1,8 +1,9 @@
 import os
 import base64
 from openai import OpenAI
+
+from src.constants import OCR_MODEL
 from src.models import GenericFile, TextExtraction
-from pydantic import BaseModel, Field
 
 async def extract_text(image: GenericFile):
     base64_image = base64.b64encode(image.content).decode("utf-8")
@@ -17,7 +18,7 @@ async def extract_text(image: GenericFile):
 
     client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     response = client.beta.chat.completions.parse(
-        model="gpt-4o-2024-08-06",
+        model=OCR_MODEL,
         messages=messages,
         response_format=TextExtraction
     )

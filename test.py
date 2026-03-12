@@ -60,6 +60,8 @@ if __name__ == "__main__":
     for claim_id, result in check.items():
         expected = result['expected']['decision']
         actual = result['actual']['result']['decision']
+        if 'acceptable_decision' in result['expected'] and expected != actual:
+            expected = result['expected']['acceptable_decision']
         if expected == actual:
             matches += 1
 

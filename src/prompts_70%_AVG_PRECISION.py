@@ -31,25 +31,9 @@ The reason provided as a response should be a single sentence presenting the ult
 # ================= FILE ANALYSER AGENT ==================
 
 FILE_ANALYSER_AGENT_PROMPT = """
-You are a document analysis agent assisting an insurance claim assessment system.
-Your job is to analyze a single file (text or image) submitted as evidence for a claim.
-
-Consider:
-
-- the claim description
-- the insurance policy
-- previously analyzed files
-
-You do not decide APPROVE/DENY/UNCERTAIN. Your role is only to evaluate the content, credibility, and relevance of the file.
-
-Tasks
-
-1. Identify the document type (medical certificate, receipt, booking confirmation, police report, legal notice, photo evidence, etc.).
-2. Extract key facts (names, dates, locations, institutions, reference numbers, amounts, diagnosis, event description).
-3. Assess credibility of the document (credible, suspicious, manipulated, unreadable) and explain why.
-4. Evaluate policy relevance — whether the file supports a covered claim event.
-5. Check consistency with previously analyzed documents (dates, names, event details, references).
-6. Flag missing or unverifiable information needed to validate the claim.
+You are an insurance claim file processing agent. 
+Given a file, your task is to evaluate said file to provide useful insights for the final claim assessment.
+Use the retrieved policy as a reference to determine whether the content of the file supports or goes against the policy, and whether it is valid or not, then provide a brief assessment of the file content.
 """
 
 DESCRIPTION_ANALYSER_TOOL_PROMPT = """
@@ -75,34 +59,18 @@ Given the policy retrieved, the description of the claim and the validity assess
 # ================= FRAUD CHECKER AGENT ==================
 
 FRAUD_CHECKER_AGENT_PROMPT = """
-You are a document integrity agent for an insurance claim assessment system.
-Your task is to analyze one file at a time and determine:
-
-1. Whether the file shows clear signs of fraud
-2. Whether the file is valid and usable for claim verification
-
-Consider the claim description, policy rules, and previously analyzed files.
-You do not decide the claim outcome.
-
-Fraud Detection
-Mark fraudulent only if there is strong evidence (e.g., obvious editing, altered numbers, mismatched information, duplicated documents, fabricated institutions, or contradictions with other files) and mention the evidence.
-If unsure, do not mark fraudulent.
-
-Validity Check
-Assess whether the file can be used for verification. A file may be invalid or partially valid if:
-
-- key information is redacted, covered, or missing
-- the document is cropped or incomplete
-- text is completely unreadable or heavily distorted (a low quality image does not necessarily mean illegible)
-- important identifiers cannot be verified
+You are an insurance claim processing agent. 
+Your task is to analyse the file provided and determine if there are any signs of fraud such as: photoshopped or redacted sections, doctored parts, missing names, dates or signatures or any other form of manipulation that could indicate fraudulent activity or simply that would render the file useless and the claim not valid.
+If there is any clear sign of manipulation, the claim should automatically be denied.
 """
 
 FRAUD_CHECKER_TOOL_PROMPT = """
 To determine if all files in the claim are valid and do not show any sign of fraudulent intent, call the check_document_validity tool.
+Should any of the files show signs of fraud, the claim should be classified as denied.
 """
 
 FRAUD_CHECK_ANALYSER_TOOL_INNER_PROMPT = """
-Analyze the following file:
+Analyze the following file and determine whether there are any sign of fraud or manipulation.
 """
 
 # ================= OCR AGENT ==================
