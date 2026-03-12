@@ -1,0 +1,351 @@
+{
+    "claim 2": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "medical document missing, the missed the medical appointment is not covered"
+        },
+        "actual": {
+            "id": "2b3f494f-836d-42f1-af81-115759f6e2e9",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the submitted evidence only shows scheduled travel and a boarding pass, but provides no proof of a covered reason, no documentation of flight disruption, and no proof of the prepaid non-refundable medical appointment loss required by the policy.",
+                "confidence": 0.96
+            }
+        }
+    },
+    "claim 5": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "317439c6-1095-4c11-af2e-2c6655ceed68",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the required medical documentation is unreadable and insufficient to verify medical unfitness to travel, making the supporting evidence incomplete for a covered cancellation claim.",
+                "confidence": 0.88
+            }
+        }
+    },
+    "claim 4": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "name is redacted"
+        },
+        "actual": {
+            "id": "0927c0c3-a662-4b0e-86d4-5015e9cfa2be",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the required medical evidence is incomplete and unreadable in key fields, so the illness cannot be reliably linked to the claimant or validated under the policy.",
+                "confidence": 0.9
+            }
+        }
+    },
+    "claim 3": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "63b5af1d-31ef-4ce7-947f-e449eab59c4f",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim should be denied because the required supporting documentation is incomplete and the medical certificate contains serious inconsistencies that undermine verification of a covered medical cancellation.",
+                "confidence": 0.9
+            }
+        }
+    },
+    "claim 25": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "medical document missing"
+        },
+        "actual": {
+            "id": "7682d4d0-0f74-4fb3-a556-82a942a5c0a0",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim must be denied because the required supporting documentation is incomplete and insufficient, with no valid medical certificate and no original verifiable booking or payment proof establishing a covered cancellation loss.",
+                "confidence": 0.93
+            }
+        }
+    },
+    "claim 22": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "the medical certificate states the person is healthy"
+        },
+        "actual": {
+            "id": "08f46751-28d0-4a35-ab18-eb951b5b0f20",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the provided documents do not show a covered reason for missed departure, as the medical certificate states the claimant was in perfect health and the alleged personal legal requirements are vague and unsupported.",
+                "confidence": 0.93
+            }
+        }
+    },
+    "claim 14": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "medical document states the patient is healthy"
+        },
+        "actual": {
+            "id": "f14051ed-92ba-43d7-a6f5-9e64ed71da7b",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the medical certificate contradicts the stated reason for cancellation by certifying Lily Fang had no apparent contraindication to sport, and the supporting documents do not establish a covered non-refundable cancellation loss.",
+                "confidence": 0.94
+            }
+        }
+    },
+    "claim 13": {
+        "expected": {
+            "decision": "UNCERTAIN",
+            "explanation": "suspicious dating on the document (17/11/2023 stamp)",
+            "acceptable_decision": "DENY"
+        },
+        "actual": {
+            "id": "5dea128d-c697-4923-9e09-a320f55639dc",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim should be denied because the key medical certificate contains a major date inconsistency and the supporting travel evidence is only limited plain-text booking data rather than complete required documentation.",
+                "confidence": 0.9
+            }
+        }
+    },
+    "claim 12": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "59c8820d-a93d-4d7f-a8ed-865632ed9b97",
+            "result": {
+                "decision": "APPROVE",
+                "explanation": "The claim is supported by a credible hospitalization certificate and matching paid flight booking showing a covered missed departure/trip cancellation due to emergency medical hospitalization.",
+                "confidence": 0.89
+            }
+        }
+    },
+    "claim 15": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "the name is obscured in the medical document and visible initials do not correspond"
+        },
+        "actual": {
+            "id": "6df53b35-03c7-49cb-ac2a-8b0a52d6d5aa",
+            "result": {
+                "decision": "UNCERTAIN",
+                "explanation": "Although there is credible medical and booking evidence for a covered medical cancellation, the pathology report does not clearly verify that Roy Hoffman is the patient and does not state travel unfitness, so the claim cannot be conclusively validated.",
+                "confidence": 0.8
+            }
+        }
+    },
+    "claim 23": {
+        "expected": {
+            "decision": "UNCERTAIN",
+            "explanation": "the document has weird dating (2016 in the bottom)",
+            "acceptable_decision": "DENY"
+        },
+        "actual": {
+            "id": "b51b5fe5-d547-44ee-be93-816fd3a63854",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the provided evidence does not include proof of payment or non-refundable financial loss for the hotel booking, which is required documentation under the policy.",
+                "confidence": 0.87
+            }
+        }
+    },
+    "claim 24": {
+        "expected": {
+            "decision": "UNCERTAIN",
+            "explanation": "minor date problem - appointment is 3 days after the flight",
+            "acceptable_decision": "APPROVE"
+        },
+        "actual": {
+            "id": "fcea1c37-8124-45ec-8305-2f4b92a0a661",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim should be denied because the medical evidence does not clearly certify unfitness to travel on the travel date and the submission lacks required proof of refund loss or cancellation despite inconsistencies in the illness timing.",
+                "confidence": 0.86
+            }
+        }
+    },
+    "claim 6": {
+        "expected": {
+            "decision": "UNCERTAIN",
+            "explanation": "the flight is in 2 weeks from now, it is not clear if the person will still be hospitalized or otherwise unable to fly"
+        },
+        "actual": {
+            "id": "262a17ab-02a2-41f9-adcd-414403b6105e",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because, although the hospitalization certificate and booking support a medical emergency and trip booking, the required proof of cancellation/refund status or amount paid is incomplete under the policy.",
+                "confidence": 0.89
+            }
+        }
+    },
+    "claim 1": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "medical document missing"
+        },
+        "actual": {
+            "id": "22290551-c3d7-408f-a65a-2b5a57758f8d",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim lacks required supporting evidence for the alleged medical emergency and includes booking details that do not match the claimant, so the documentation is incomplete for a covered cancellation claim.",
+                "confidence": 0.92
+            }
+        }
+    },
+    "claim 8": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "the medical document is in text form. this MUST be denied."
+        },
+        "actual": {
+            "id": "482aad88-643b-4bff-8be8-05305252edda",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the provided documents do not include required proof of booking payment or actual unreimbursed loss despite only partially verifiable medical and itinerary records.",
+                "confidence": 0.84
+            }
+        }
+    },
+    "claim 9": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "ba4bc1d9-13a5-4e9e-86fc-669bbe13464b",
+            "result": {
+                "decision": "APPROVE",
+                "explanation": "The claim is supported by a credible medical certificate and matching flight booking showing a covered medical reason for missing the trip with documented loss amount.",
+                "confidence": 0.87
+            }
+        }
+    },
+    "claim 7": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "the document is generally suspicious: stamp with signature seems photoshopped onto a non-printed document. the document mentions that the person was 'discharged on' but does not have the date."
+        },
+        "actual": {
+            "id": "eb134db1-42cc-492d-bb0a-9a87dba48a25",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the required supporting documentation is incomplete and not independently verifiable, particularly the medical certificate lacks a discharge date and the booking proof is only an unverifiable text summary.",
+                "confidence": 0.93
+            }
+        }
+    },
+    "claim 21": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "no supporting documentation provided",
+            "acceptable_decision": "UNCERTAIN"
+        },
+        "actual": {
+            "id": "357718c8-da9f-49fa-9392-e6a110b5126e",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the required medical documentation proving the covered emergency is missing, making the submission incomplete under the policy.",
+                "confidence": 0.95
+            }
+        }
+    },
+    "claim 19": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "19620e91-5531-400c-8b1b-cd4f1f8c0113",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim should be denied because the critical medical evidence does not match the claimant name on the booking and description, making the required supporting documentation inconsistent and insufficient under the policy.",
+                "confidence": 0.93
+            }
+        }
+    },
+    "claim 10": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "the medical certificate states the person is healthy"
+        },
+        "actual": {
+            "id": "d0aa2ebd-d4fb-4c57-980b-7a67c5a8e97d",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the submitted documents do not establish a covered medical emergency or another covered reason for the missed flight and the medical certificate conflicts with the narrative by naming a different child and describing only a routine healthy examination.",
+                "confidence": 0.92
+            }
+        }
+    },
+    "claim 17": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "documentation states the claimant is in good condition, lacks a signature"
+        },
+        "actual": {
+            "id": "745c3a9a-64db-4f00-912f-490d0c91b6e2",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim is denied because the medical certificate is invalid and does not support a covered medical emergency while the required documentation for a covered cancellation reason is incomplete.",
+                "confidence": 0.94
+            }
+        }
+    },
+    "claim 16": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "94157e91-d163-42c5-93d9-49f7bc7735ec",
+            "result": {
+                "decision": "APPROVE",
+                "explanation": "The claim is supported by a credible hospitalization certificate and matching train booking for the same date, satisfying the policy\u2019s covered medical cancellation reason and documentation requirements.",
+                "confidence": 0.85
+            }
+        }
+    },
+    "claim 11": {
+        "expected": {
+            "decision": "APPROVE"
+        },
+        "actual": {
+            "id": "9b6e33a6-b946-4996-aee3-bc56606ab132",
+            "result": {
+                "decision": "APPROVE",
+                "explanation": "The claim is supported by a credible medical certificate and matching flight booking showing a covered missed departure due to sudden illness with no signs of document fraud.",
+                "confidence": 0.87
+            }
+        }
+    },
+    "claim 18": {
+        "expected": {
+            "decision": "DENY",
+            "explanation": "a picture is attached instead of the medical certificate",
+            "acceptable_decision": "UNCERTAIN"
+        },
+        "actual": {
+            "id": "c5065af7-2ed7-4187-84b8-903af405bc50",
+            "result": {
+                "decision": "DENY",
+                "explanation": "The claim should be denied because the required supporting medical and booking documentation is missing or unreadable, so the alleged medical emergency and covered travel loss cannot be verified under the policy.",
+                "confidence": 0.95
+            }
+        }
+    },
+    "claim 20": {
+        "expected": {
+            "decision": "UNCERTAIN",
+            "explanation": "no signature on the medical certificate",
+            "acceptable_decision": "DENY"
+        },
+        "actual": {
+            "id": "429e4e8c-2d27-4a4a-ab2e-d57c477745be",
+            "result": {
+                "decision": "APPROVE",
+                "explanation": "The hospitalization certificate is valid and matches the booked flight date, and together with the booking proof it credibly supports a covered trip cancellation due to medical emergency.",
+                "confidence": 0.79
+            }
+        }
+    }
+}
