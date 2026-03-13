@@ -1,10 +1,11 @@
-from collections.abc import Sequence
-from typing import Dict, List
-from src.models import ClaimSubmission, ClaimProcessingResult, GenericFile
-
+import os
 import json
 import uuid
-import os
+from typing import Dict, List
+
+from src.constants import STORAGE_PATH, CHOICE_FILENAME
+from src.models import ClaimSubmission, ClaimProcessingResult, GenericFile
+
 
 async def parse_claim_submission(files) -> ClaimSubmission:
     description = None
@@ -39,8 +40,6 @@ async def prepare_claim_submission(description, supporting_docs) -> ClaimSubmiss
 
 async def save_claim(submission: ClaimSubmission, result: ClaimProcessingResult) -> Dict | None:
 
-    STORAGE_PATH = "./data/claims"
-
     uuid_str = str(uuid.uuid4())
     claim_path = os.path.join(STORAGE_PATH, f"claim_{uuid_str}")
     os.makedirs(claim_path)
@@ -54,7 +53,7 @@ async def save_claim(submission: ClaimSubmission, result: ClaimProcessingResult)
         with open(doc_path, "wb") as f:
             f.write(doc.content)
 
-    result_path = os.path.join(claim_path, "answer.json")
+    result_path = os.path.join(claim_path, CHOICE_FILENAME)
     with open(result_path, "w") as f:
         json.dump(result, f, indent=4)
 
@@ -65,10 +64,10 @@ async def save_claim(submission: ClaimSubmission, result: ClaimProcessingResult)
 async def retrieve_claims(id = None) -> List[Dict] | Dict:
     if id is None:
         claims = []
-        for claim_folder in os.listdir('./data/claims'):
-            claim_path = os.path.join('./data/claims', claim_folder)
+        for claim_folder in os.listdir(STORAGE_PATH):
+            claim_path = os.path.join(STORAGE_PATH, claim_folder)
             if os.path.isdir(claim_path):
-                file_path = os.path.join(claim_path, 'answer.json')
+                file_path = os.path.join(claim_path, CHOICE_FILENAME)
                 with open(file_path, 'r') as f:
                     result = json.load(f)
                 claims.append({
@@ -77,9 +76,9 @@ async def retrieve_claims(id = None) -> List[Dict] | Dict:
                 })
         return claims
     else:
-        claim_path = os.path.join('./data/claims', f"claim_{id}")
+        claim_path = os.path.join(STORAGE_PATH, f"claim_{id}")
         if os.path.isdir(claim_path):
-            file_path = os.path.join(claim_path, 'answer.json')
+            file_path = os.path.join(claim_path, CHOICE_FILENAME)
             with open(file_path, 'r') as f:
                 result = json.load(f)
             return {

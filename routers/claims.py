@@ -9,15 +9,10 @@ router = APIRouter(prefix="/claims")
 async def submit_claim(files: List[UploadFile] = File(...)):
     try:
         submission = await parse_claim_submission(files)
-    except ValueError as e:
-        return {"error": str(e)}
-
-    claim_analyser_result = await claim_analyser_run(submission=submission)
-
-    try: 
+        claim_analyser_result = await claim_analyser_run(submission=submission)
         uuid = await save_claim(submission, claim_analyser_result.output.dict())
     except Exception as e:
-        return {'error', str(e)}
+        return {'error': str(e)}
     
     return {'id': uuid, 'result': claim_analyser_result.output}
 

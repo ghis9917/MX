@@ -1,0 +1,5 @@
+{
+    "decision": "DENY",
+    "explanation": "The claim should be denied because there is no required documentation proving a covered travel disruption or the amount paid for the missed appointment, making the submission incomplete under the policy.",
+    "confidence": 0.9
+}

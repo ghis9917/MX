@@ -2,13 +2,13 @@ from pydantic_ai import Agent, RunContext
 from typing import List
 
 from src.prompts import *
-from src.constants import AGENTS_MODEL
+from src.constants import CLAIM_ANALYSER_MODEL
 from src.agents.file_analyser import *
 from src.agents.fraud_checker import *
 from src.models import ClaimProcessingResult, ClaimSubmission
 
 claim_analyser = Agent(
-    AGENTS_MODEL,
+    CLAIM_ANALYSER_MODEL,
     deps_type=ClaimSubmission,
     output_type=ClaimProcessingResult,
     retries=3,

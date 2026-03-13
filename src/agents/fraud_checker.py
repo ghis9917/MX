@@ -1,7 +1,7 @@
 from typing import List
 from pydantic_ai import Agent, BinaryContent
 
-from src.constants import AGENTS_MODEL
+from src.constants import FRAUD_CHECKER_MODEL
 from src.models import GenericFile
 from src.prompts import (
     FRAUD_CHECKER_AGENT_PROMPT,
@@ -9,7 +9,7 @@ from src.prompts import (
 )
 
 fraud_checker = Agent(
-    AGENTS_MODEL,
+    FRAUD_CHECKER_MODEL,
     output_type=str,
     retries=3,
     system_prompt=FRAUD_CHECKER_AGENT_PROMPT

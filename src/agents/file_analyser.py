@@ -2,7 +2,7 @@ from typing import List
 from pydantic_ai import Agent, BinaryContent
 
 from src.agents.ocr_agent import extract_text
-from src.constants import AGENTS_MODEL
+from src.constants import FILE_ANALYSER_MODEL
 from src.prompts import (
     FILE_ANALYSER_AGENT_PROMPT,
     DESCRIPTION_ANALYSER_TOOL_INNER_PROMPT, 
@@ -10,7 +10,7 @@ from src.prompts import (
 )
 
 file_analyser = Agent(
-    AGENTS_MODEL,
+    FILE_ANALYSER_MODEL,
     output_type=str,
     retries=3,
     system_prompt=FILE_ANALYSER_AGENT_PROMPT

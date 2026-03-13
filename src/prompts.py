@@ -113,6 +113,5 @@ In some cases the documents might be in languages different from english, in tho
 """
 
 OCR_TOOL_INNER_PROMPT = """
-Extract the text from the following file and, if the text is not english, translate it to english.
+Extract the text from this image and translate it to english.
 """
-

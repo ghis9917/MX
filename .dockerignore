@@ -4,5 +4,5 @@ docker-compose.yml
 .DS_Store
 .git
 .gitignore
+data/benchmarks/
 data/tests/
-data/*.json
